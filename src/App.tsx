@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import {
   Film, Tv, Search, Calendar, Star, Clock, ChevronRight, Info, SlidersHorizontal,
   Clapperboard, BarChart2, MapPin, Tag, PieChart as PieIcon, Ratio, RotateCcw,
@@ -11,7 +11,8 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { cleanedData } from './cleanData';
+import { loadData } from './data';
+import { cleanDataset } from './cleanData';
 import type { CleanNetflixTitle } from './cleanData';
 import { countByKey, groupByYear, toNameValueArray, topN } from './utils';
 import { parseUploadedCSV } from './parseUpload';
@@ -239,6 +240,23 @@ export default function App() {
   const [topNLimit, setTopNLimit]             = useState<5 | 10>(10);
   const [entered, setEntered]                 = useState(false);
 
+  // ── CSV dataset loaded on mount ───────────────────────────────────────────
+  const [baseDataset, setBaseDataset]         = useState<CleanNetflixTitle[]>([]);
+  const [dataLoading, setDataLoading]         = useState(true);
+  const [dataError, setDataError]             = useState('');
+
+  useEffect(() => {
+    loadData()
+      .then(rows => {
+        setBaseDataset(cleanDataset(rows));
+        setDataLoading(false);
+      })
+      .catch(err => {
+        setDataError(String(err?.message ?? 'Failed to load netflix.csv'));
+        setDataLoading(false);
+      });
+  }, []);
+
   // ── Dataset: base + any uploaded additions ────────────────────────────────
   const [uploadedData, setUploadedData]       = useState<CleanNetflixTitle[]>([]);
   const [uploadStatus, setUploadStatus]       = useState<'idle' | 'success' | 'error'>('idle');
@@ -246,8 +264,8 @@ export default function App() {
   const fileInputRef                          = useRef<HTMLInputElement>(null);
 
   const activeDataset = useMemo(
-    () => (uploadedData.length > 0 ? [...cleanedData, ...uploadedData] : cleanedData),
-    [uploadedData],
+    () => (uploadedData.length > 0 ? [...baseDataset, ...uploadedData] : baseDataset),
+    [baseDataset, uploadedData],
   );
 
   const handleFileUpload = useCallback((file: File) => {
@@ -572,6 +590,31 @@ export default function App() {
 
     return results;
   }, [filteredData, evolutionData]);
+
+  // ── Loading / error guard ─────────────────────────────────────────────────
+  if (dataLoading) {
+    return (
+      <div className="min-h-screen bg-netflix-dark flex flex-col items-center justify-center gap-4">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+          className="w-8 h-8 border-2 border-netflix-red/30 border-t-netflix-red rounded-full"
+        />
+        <p className="text-netflix-muted text-sm">Loading dataset…</p>
+      </div>
+    );
+  }
+
+  if (dataError) {
+    return (
+      <div className="min-h-screen bg-netflix-dark flex flex-col items-center justify-center gap-3 px-6 text-center">
+        <AlertCircle className="w-8 h-8 text-netflix-red/70" />
+        <p className="text-white font-semibold">Failed to load data</p>
+        <p className="text-netflix-muted text-sm max-w-xs">{dataError}</p>
+        <p className="text-netflix-muted/50 text-xs">Make sure <code className="text-white/60">public/netflix.csv</code> exists and the dev server is running.</p>
+      </div>
+    );
+  }
 
   return (
     <AnimatePresence mode="wait">
