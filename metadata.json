@@ -1,0 +1,5 @@
+{
+  "name": "Netflix Content Analytics",
+  "description": "A premium, competition-level data dashboard for exploring Netflix content trends, global distribution, and genre insights.",
+  "requestFramePermissions": []
+}

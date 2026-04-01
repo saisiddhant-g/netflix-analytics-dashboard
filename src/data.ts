@@ -1,0 +1,297 @@
+export interface NetflixTitle {
+  show_id: string;
+  type: 'Movie' | 'TV Show';
+  title: string;
+  director: string;
+  cast: string;
+  country: string;
+  date_added: string;
+  release_year: number;
+  rating: string;
+  duration: string;
+  listed_in: string;
+  description: string;
+}
+
+export const rawData: NetflixTitle[] = [
+  {
+    show_id: "s1",
+    type: "TV Show",
+    title: "Dawai Asmara",
+    director: "",
+    cast: "Hanna Aqiela, Tengku Putri Najuwa, Emelie Hanif, Zoey Rahman, Faiez Affandi, Wanny Mustahfah, Sherie Merlis, Mahmud Alibashah, Zalfa Zin, Kamal Ibrahim, Amanda Hariz, Alesha Hariz, Fathimah Az Zahra, Elya Miera Ismail",
+    country: "",
+    date_added: "December 11, 2017",
+    release_year: 2016,
+    rating: "TV-14",
+    duration: "1 Season",
+    listed_in: "International TV Shows, TV Dramas",
+    description: "Following life-changing traumas, two girls from different backgrounds fight to discover the identities of their biological parents."
+  },
+  {
+    show_id: "s2",
+    type: "Movie",
+    title: "Democrats",
+    director: "Camilla Nielsson",
+    cast: "",
+    country: "Denmark, Zimbabwe",
+    date_added: "April 25, 2016",
+    release_year: 2014,
+    rating: "NR",
+    duration: "99 min",
+    listed_in: "Documentaries, International Movies",
+    description: "After Zimbabwe's disputed 2008 election results, political enemies are asked to write a new constitution and save their country from a bleak future."
+  },
+  {
+    show_id: "s3",
+    type: "TV Show",
+    title: "The 10 Sins",
+    director: "",
+    cast: "Abdul Mohsen Alnimer, Haifa Hussien, Qahtan Alqahtani, Mohammed Sefer, Abdulla Bu Shehri",
+    country: "",
+    date_added: "March 22, 2019",
+    release_year: 2018,
+    rating: "TV-14",
+    duration: "1 Season",
+    listed_in: "International TV Shows, TV Dramas",
+    description: "In this social drama of sin and remorse, a man reels at the discovery that his wife has been unfaithful, and gives her an ultimatum."
+  },
+  {
+    show_id: "s4",
+    type: "Movie",
+    title: "Jo Koy: Comin' In Hot",
+    director: "Shannon Hartman",
+    cast: "Jo Koy",
+    country: "United States",
+    date_added: "June 12, 2019",
+    release_year: 2019,
+    rating: "TV-MA",
+    duration: "60 min",
+    listed_in: "Stand-Up Comedy",
+    description: "Comedian Jo Koy takes center stage in Hawaii and shares his candid take on cultural curiosities, filter-free fatherhood and more."
+  },
+  {
+    show_id: "s5",
+    type: "Movie",
+    title: "Chico Bon Bon and the Very Berry Holiday",
+    director: "Darragh O'Connell",
+    cast: "Robbie Daymond, Dayci Brookshire, Anthony Tedesco, Andy Abbott, Emma Sloan Jacobs, Joanna Lewis, Matt Mercer, Ian Nikus",
+    country: "",
+    date_added: "December 3, 2020",
+    release_year: 2020,
+    rating: "TV-Y",
+    duration: "25 min",
+    listed_in: "Children & Family Movies",
+    description: "The Fix-It Force makes a plan to hit every home as fast as they can, delivering Blunderberry Cakes before the town awakes to avoid a holiday disaster."
+  },
+  {
+    show_id: "s6",
+    type: "TV Show",
+    title: "Empire Games",
+    director: "",
+    cast: "Jim O'Brien",
+    country: "Czech Republic, United States",
+    date_added: "October 5, 2018",
+    release_year: 2018,
+    rating: "TV-14",
+    duration: "1 Season",
+    listed_in: "Docuseries",
+    description: "Interviews with scholars and dramatic reenactments bring to life the origins and history-making achievements of the world's greatest ancient empires."
+  },
+  {
+    show_id: "s7",
+    type: "TV Show",
+    title: "Angelina Ballerina",
+    director: "",
+    cast: "",
+    country: "",
+    date_added: "May 1, 2021",
+    release_year: 2010,
+    rating: "TV-Y",
+    duration: "2 Seasons",
+    listed_in: "British TV Shows, Kids' TV",
+    description: "Angelina is crazy about ballet dancing, even though she's a young mouse, and studies hard with a famous teacher to become a prima ballerina."
+  },
+  {
+    show_id: "s8",
+    type: "Movie",
+    title: "The Christmas Chronicles: Part Two",
+    director: "Chris Columbus",
+    cast: "Kurt Russell, Goldie Hawn, Darby Camp, Jahzir Bruno, Julian Dennison, Judah Lewis, Kimberly Williams-Paisley, Tyrese Gibson",
+    country: "Canada",
+    date_added: "November 25, 2020",
+    release_year: 2020,
+    rating: "PG",
+    duration: "115 min",
+    listed_in: "Children & Family Movies, Comedies",
+    description: "Unhappy over her mom’s new relationship, a now-teenage Kate runs away and lands at the North Pole, where a naughty elf is plotting to cancel Christmas."
+  },
+  {
+    show_id: "s9",
+    type: "Movie",
+    title: "Cuties",
+    director: "Maïmouna Doucouré",
+    cast: "Fathia Youssouf, Médina El Aidi-Azouni, Esther Gohourou, Ilanah Cami-Goursolas, Myriam Hamma, Maïmouna Gueye, Mbissine Thérèse Diop, Demba Diaw, Mamadou Samaké",
+    country: "France",
+    date_added: "September 9, 2020",
+    release_year: 2020,
+    rating: "TV-MA",
+    duration: "96 min",
+    listed_in: "Dramas, International Movies",
+    description: "Eleven-year-old Amy starts to rebel against her conservative family’s traditions when she becomes fascinated with a free-spirited dance crew."
+  },
+  {
+    show_id: "s10",
+    type: "TV Show",
+    title: "Misaeng",
+    director: "",
+    cast: "Im Si-wan, Kang So-ra, Lee Sung-min, Kang Ha-neul, Byun Yo-han, Kim Dae-myeong, Shin Eun-jung, Park Hae-joon",
+    country: "South Korea",
+    date_added: "August 8, 2019",
+    release_year: 2014,
+    rating: "TV-MA",
+    duration: "1 Season",
+    listed_in: "International TV Shows, Korean TV Shows, TV Dramas",
+    description: "Equipped with nothing more than a GED and strategies for the game of go, an office intern gets thrown into the cold reality of the corporate world."
+  },
+  {
+    show_id: "s11",
+    type: "Movie",
+    title: "The Queen",
+    director: "Stephen Frears",
+    cast: "Helen Mirren, Michael Sheen, James Cromwell, Helen McCrory, Alex Jennings, Roger Allam, Sylvia Syms, Mark Bazeley",
+    country: "United Kingdom, United States, France, Italy",
+    date_added: "July 1, 2021",
+    release_year: 2006,
+    rating: "PG-13",
+    duration: "103 min",
+    listed_in: "Dramas, International Movies",
+    description: "After Princess Diana's death, Queen Elizabeth II and Tony Blair face public demands that she be memorialized in a manner beyond standard protocol."
+  },
+  {
+    show_id: "s12",
+    type: "Movie",
+    title: "Cook Off",
+    director: "Tomas Brickhill",
+    cast: "Tendaiishe Chitima, Tendai Nguni, Jesese Mungoshi, Eddie Sandifolo, Charmaine Mujeri, Kudzai Sevenzo, Fungai Majaya, Eugene Zimbudzi, Chimwemwe Chipidza, Kevin Hanssen, Zihlo, Michael Kudakwashe",
+    country: "Zimbabwe",
+    date_added: "June 1, 2020",
+    release_year: 2017,
+    rating: "TV-G",
+    duration: "100 min",
+    listed_in: "Comedies, International Movies, Romantic Movies",
+    description: "Yearning for a better life, a single mother with a passion for cooking gets a shot at greatness when her son enters her into a top reality cooking show."
+  },
+  {
+    show_id: "s13",
+    type: "TV Show",
+    title: "The American Bible Challenge",
+    director: "Michael Simon",
+    cast: "Jeff Foxworthy",
+    country: "United States",
+    date_added: "June 15, 2021",
+    release_year: 2014,
+    rating: "TV-G",
+    duration: "1 Season",
+    listed_in: "Reality TV",
+    description: "Join host Jeff Foxworthy as contestants test their knowledge of all things biblical, competing to win money for the charities of their choice."
+  },
+  {
+    show_id: "s14",
+    type: "Movie",
+    title: "Night of Knots",
+    director: "Hakan Algül",
+    cast: "Şahin Irmak, İrem Sak, Gonca Vuslateri, Emre Karayel, Duygu Yetiş, Onur Buldu, Salih Kalyon, Bilge Şen, Nilgün Belgün, Hakan Akın",
+    country: "Turkey",
+    date_added: "September 10, 2020",
+    release_year: 2018,
+    rating: "TV-MA",
+    duration: "93 min",
+    listed_in: "Comedies, International Movies, Romantic Movies",
+    description: "Two exes run into each other at a wedding hall and realize they still harbor romantic feelings. The one problem? They just got married to other people."
+  },
+  {
+    show_id: "s15",
+    type: "TV Show",
+    title: "Nagi-Asu: A Lull in the Sea",
+    director: "",
+    cast: "Natsuki Hanae, Kana Hanazawa, Ai Kayano, Ryota Osaka, Kaito Ishikawa, Mikako Komatsu, Kaori Ishihara, Kaori Nazuka, Masuo Amada, Junji Majima, Motomu Kiyokawa, Kohsuke Toriumi",
+    country: "Japan",
+    date_added: "August 1, 2020",
+    release_year: 2014,
+    rating: "TV-14",
+    duration: "1 Season",
+    listed_in: "Anime Series, Romantic TV Shows, Teen TV Shows",
+    description: "In a world where humans are divided between the land and the sea, four childhood friends from the ocean must attend middle school on the surface."
+  },
+  {
+    show_id: "s16",
+    type: "TV Show",
+    title: "Patriot Act with Hasan Minhaj",
+    director: "",
+    cast: "Hasan Minhaj",
+    country: "United States",
+    date_added: "May 17, 2020",
+    release_year: 2020,
+    rating: "TV-MA",
+    duration: "6 Seasons",
+    listed_in: "Stand-Up Comedy & Talk Shows, TV Comedies",
+    description: "Every Sunday, Hasan Minhaj brings an incisive and nuanced perspective to global news, politics and culture in his unique comedy series."
+  },
+  {
+    show_id: "s17",
+    type: "TV Show",
+    title: "Magic for Humans Spain",
+    director: "",
+    cast: "Antonio Díaz",
+    country: "Spain",
+    date_added: "March 26, 2021",
+    release_year: 2021,
+    rating: "TV-MA",
+    duration: "1 Season",
+    listed_in: "International TV Shows, Reality TV, Spanish-Language TV Shows",
+    description: "In this Spanish adaptation of \"Magic for Humans,\" folks of all ages on the streets of Barcelona are amazed by tricks that inspire delight and wonder."
+  },
+  {
+    show_id: "s18",
+    type: "Movie",
+    title: "Disco Dancer",
+    director: "B. Subhash",
+    cast: "Mithun Chakraborty, Kim, Kalpana Iyer, Om Puri, Gita Siddharth, Yusuf Khan, Bob Christo, Om Shivpuri, Karan Razdan",
+    country: "India",
+    date_added: "October 12, 2020",
+    release_year: 1982,
+    rating: "TV-14",
+    duration: "134 min",
+    listed_in: "Cult Movies, Dramas, International Movies",
+    description: "A poor boy grows up to be a famous disco dancer, hoping to use his art to exact revenge on the millionaire who once framed him and his mother for theft."
+  },
+  {
+    show_id: "s19",
+    type: "Movie",
+    title: "Surat Dari Praha",
+    director: "Angga Dwimas Sasongko",
+    cast: "Tio Pakusadewo, Julie Estelle, Widyawati, Rio Dewanto, Chicco Jerikho, Jajang C. Noer, Shafira Umm",
+    country: "Indonesia",
+    date_added: "October 9, 2018",
+    release_year: 2016,
+    rating: "TV-14",
+    duration: "98 min",
+    listed_in: "Dramas, International Movies, Romantic Movies",
+    description: "Hoping to fulfill her deceased mother's final wish, a young woman travels to Prague to deliver an old letter to a mysterious man."
+  },
+  {
+    show_id: "s20",
+    type: "TV Show",
+    title: "Feel Good",
+    director: "Ally Pankiw",
+    cast: "Mae Martin, Charlotte Ritchie, Lisa Kudrow, Sophie Thompson, Tom Andrews, Tobi Bamtefa, Phil Burgers, Ophelia Lovibond, Adrian Lukis, Ritu Arya, Ramon Tikaram",
+    country: "United Kingdom",
+    date_added: "June 4, 2021",
+    release_year: 2021,
+    rating: "TV-MA",
+    duration: "2 Seasons",
+    listed_in: "Romantic TV Shows, TV Comedies, TV Dramas",
+    description: "Stand-up comic Mae Martin navigates a passionate, messy new relationship with her girlfriend, George, while dealing with the challenges of sobriety."
+  }
+];
